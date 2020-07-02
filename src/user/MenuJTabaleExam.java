@@ -19,6 +19,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JLabel;
+import javax.swing.UIManager;
  
  
 public class MenuJTabaleExam extends JFrame implements ActionListener {
@@ -54,7 +55,9 @@ public class MenuJTabaleExam extends JFrame implements ActionListener {
      */
     public MenuJTabaleExam() {
        
-        super("GUI 회원관리프로그램 - DB연동");
+        super("회원관리프로그램");
+        jt.setBackground(UIManager.getColor("Button.light"));
+        jt.setFont(new Font("굴림", Font.PLAIN, 16));
  
         //메뉴아이템을 메뉴에 추가
         m.add(insert);
@@ -75,75 +78,75 @@ public class MenuJTabaleExam extends JFrame implements ActionListener {
         search.add(jtf);
         search.add(serach);
         getContentPane().setLayout(null);
-        search.setVisible(false);
-        
-        //로그인 패널 만들기
-        JPanel LoginPanel = new JPanel();
-        LoginPanel.setBounds(0, 0, 703, 340);
-        getContentPane().add(LoginPanel);
-        jsp.setBounds(0, 0, 703, 307);
- 
-        final String ID="yun";
-        final String PASS="qwer";
-        LoginPanel.setLayout(null);
-        
-        passField = new JPasswordField();
-        passField.setFont(new Font("Arial", Font.PLAIN, 26));
-        passField.setBounds(353, 196, 147, 30);
-        passField.setBorder(null);
-        LoginPanel.add(passField);
-        
-        idField = new JTextField();
-        idField.setFont(new Font("Arial", Font.PLAIN, 26));
-        idField.setBounds(353, 146, 147, 30);
-        LoginPanel.add(idField);
-        idField.setColumns(10);
-        idField.setBorder(null);   //Border     
-        
-        JLabel idlbl = new JLabel("I D : ");
-        idlbl.setFont(new Font("굴림", Font.BOLD, 19));
-        idlbl.setBounds(282, 148, 49, 30);
-        LoginPanel.add(idlbl);
-        
-        JLabel lblPw = new JLabel("PW : ");
-        lblPw.setFont(new Font("굴림", Font.BOLD, 19));
-        lblPw.setBounds(282, 196, 49, 30);
-        LoginPanel.add(lblPw);
-        
-        JLabel label = new JLabel("회원 관리 프로그램");
-        label.setForeground(Color.RED);
-        label.setFont(new Font("굴림", Font.BOLD, 26));
-        label.setBounds(282, 39, 290, 63);
-        LoginPanel.add(label);
-        
-        //로그인 버튼
-        JButton logInBtn = new JButton("login");
-        logInBtn.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        		 if(ID.equals(idField.getText()) && PASS.equals(passField.getText())){
-        			 LoginPanel.setVisible(false);  
-        			 search.setVisible(true);
-        			 mb.setVisible(true);
-        			 JOptionPane.showMessageDialog(null,"Log In Success");
-        		 }else{
-                     JOptionPane.showMessageDialog(null,"You Failed to Log In");
-        		 }
-        	}	 
-        });
-        logInBtn.setIcon(new ImageIcon("C:\\workspace\\transfer\\image\\button.jpg"));
-        logInBtn.setPressedIcon(new ImageIcon("C:\\workspace\\transfer\\image\\btnClicked.jpg"));
-        
-        logInBtn.setBounds(327, 246, 158, 38);
-        LoginPanel.add(logInBtn);
-        
+        search.setVisible(true);
+  
+    //로그인 패널 만들기
+    JPanel LoginPanel = new JPanel();
+    LoginPanel.setBounds(0, 0, 703, 340);
+    getContentPane().add(LoginPanel);
+    jsp.setBounds(0, 0, 703, 307);
+
+    final String ID="yun";
+    final String PASS="qwer";
+    LoginPanel.setLayout(null);
+    
+    passField = new JPasswordField();
+    passField.setFont(new Font("Arial", Font.PLAIN, 26));
+    passField.setBounds(353, 196, 147, 30);
+    passField.setBorder(null);
+    LoginPanel.add(passField);
+    
+    idField = new JTextField();
+    idField.setFont(new Font("Arial", Font.PLAIN, 26));
+    idField.setBounds(353, 146, 147, 30);
+    LoginPanel.add(idField);
+    idField.setColumns(10);
+    idField.setBorder(null);   //Border     
+    
+    JLabel idlbl = new JLabel("I D : ");
+    idlbl.setFont(new Font("굴림", Font.BOLD, 19));
+    idlbl.setBounds(282, 148, 49, 30);
+    LoginPanel.add(idlbl);
+    
+    JLabel lblPw = new JLabel("PW : ");
+    lblPw.setFont(new Font("굴림", Font.BOLD, 19));
+    lblPw.setBounds(282, 196, 49, 30);
+    LoginPanel.add(lblPw);
+    
+    JLabel label = new JLabel("회원 관리 프로그램");
+    label.setForeground(Color.RED);
+    label.setFont(new Font("굴림", Font.BOLD, 26));
+    label.setBounds(282, 39, 290, 63);
+    LoginPanel.add(label);
+    
+    //로그인 버튼
+    JButton logInBtn = new JButton("login");
+    logInBtn.addActionListener(new ActionListener() {
+    	public void actionPerformed(ActionEvent e) {
+    		 if(ID.equals(idField.getText()) && PASS.equals(passField.getText())){
+    			 LoginPanel.setVisible(false);  
+    			 search.setVisible(true);
+    			 mb.setVisible(true);
+    			 JOptionPane.showMessageDialog(null,"Log In Success");
+    		 }else{
+                 JOptionPane.showMessageDialog(null,"You Failed to Log In");
+    		 }
+    	}	 
+    });
+    logInBtn.setIcon(new ImageIcon("C:\\workspace\\transfer\\image\\button.jpg"));
+    logInBtn.setPressedIcon(new ImageIcon("C:\\workspace\\transfer\\image\\btnClicked.jpg"));
+    
+    logInBtn.setBounds(327, 246, 158, 38);
+    LoginPanel.add(logInBtn);
+    
         getContentPane().add(jsp);
         getContentPane().add(search);
  
-        setSize(719, 400);
+        setSize(719, 408);
         setVisible(true);
  
         super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
- 
+
         // 이벤트등록
         insert.addActionListener(this);
         update.addActionListener(this);
